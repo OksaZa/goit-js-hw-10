@@ -46,7 +46,7 @@ h1 {
     position: relative;
     top: 100px;
     left: 150px;
-    animation: rotate 1s linear infinite
+    animation: rotate 1s linear infinite;
 }
 
 .loader::before,

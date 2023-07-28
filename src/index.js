@@ -49,12 +49,14 @@ function toggleShowLoadListSelection() {
 function onSelectBreed(event) {
     loader.classList.replace('is-hidden', 'loader');
     selector.classList.add('is-hidden');
+    divCatInfo.classList.add('is-hidden');
 
     const breedId = event.currentTarget.value;
     fetchCatByBreed(breedId)
     .then(data => {
       loader.classList.replace('loader', 'is-hidden');
       selector.classList.remove('is-hidden');
+      divCatInfo.classList.remove('is-hidden');
       const { url, breeds } = data[0];
       divCatInfo.innerHTML = `
         <div class="box-img">
@@ -71,6 +73,7 @@ function onSelectBreed(event) {
 function onFetchError() {
   selector.classList.remove('is-hidden');
   loader.classList.replace('loader', 'is-hidden');
+  divCatInfo.classList.add('is-hidden');
   
     Notify.failure('Oops! Something went wrong! Try reloading the page or select another cat breed!', {
         position: 'left-top',
